@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>College Library Online Course Management System</title>
+<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" type="text/css">
+
+<style>
+.frm{  background:green; border-radius:30px;width:444px;padding:50px 50px ;margin:auto;font-family:rokkittbold}
+.inpt{color:white;margin:22px 22px; padding:10px; border-radius:30px;font-family:rokkittbold}
+.inpt input{ ; padding-left:22px;float:right;font-family:rokkittbold}
+label{ float:left;}
+#h22{ text-align:center; margin-top:0px;}
+select{float:right;}
+
+
+
+.bttn{ background:silver;padding:10px 22px ;border-radius:22px; width:122px;margin-left:144px; }
+.bttn input{ border:none; background:none;color:blue;font-weight:bold;font-family:rokkittbold;font-size:16px;}
+.bttn input:hover{ color:black;}
+@media only screen and (max-width:993px){
+.frm{ margin-left:0;background:blue;}
+}
+</style>
+
+
+</head>
+<body>
+<!---------------------------header and fix sidebar-------------------------->
+
+	<div class="header">
+		<div class="coverhead">
+			<a href="index.html" id="logo"><img src="images/logo.png" alt="logo" height="58" width="381"></a>
+			<div class="coverul">
+				<div id="topbar">
+  				   <ul>
+  				 	<li><a href="#">FK<sup><i class="fa fa-trademark fa-fw "></i></sup></a></li>
+				 	<li><a href="#"><i class="fa fa-address-book-o fa-fw" aria-hidden="true"></i>Contact Us</a></li>
+					<li><a href="#"><i class="fa fa-user-circle fa-fw" aria-hidden="true"></i>Student Login</a></li>
+       					<li><a href="login.html"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i>Admin Login</a></li>
+     				   </ul>
+
+				</div>
+
+
+
+				<ul class="selful">
+					<li   class="selected">	<a href="index.html"><i class="fa fa-home fa-fw"></i>Home</a></li>
+					<li><a href="#">Managment</a></li>
+
+					<li><a href="addnew.html">Admission</a></li>
+					<li><a href="#">Careers</a></li>
+					<li><a href="#">Downloads</a></li>
+
+
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="sidebar">
+
+
+				<ul class="sideul">
+					<li><a href=""><i class="fa fa-info-circle fa-fw"></i>Info Desk</a></li>
+					<li><a href="">Department</a></li>
+					<li><a href="#"><i class="fa fa-ellipsis-v fa-fw "></i>Head Office</a></li>
+					<li><a href="#">Public Holiday</a></li>
+					<li><a href="#">Results</a></li>
+					<li><a href="#">I am fk</a></li>
+				</ul>
+
+
+
+	</div>
+
+<!-----------------------------form page content----------------->
+<!---------------------------------------------------------->
+
+<br>
+
+
+<div class="frm">
+<form action="new.php" method="POST">
+<h2 id="h22">Student Registration Form</h2>
+<div class="inpt">
+<label> Student Name </label> <input type="text" name="sname" maxlength="50" required/>
+<br><hr>
+<label> Father Name</label> <input type="text" name="fname" maxlength="50" required/>
+<br><hr>
+<label> NIC</label> <input type="text" name="nic" maxlength="15" placeholder="3210312345671" required/>
+<br><hr>
+<label> Date of Birth</label> <input type="date" name="dob" maxlength="50" placeholder="MM/DD/YYYY" required/>
+<br><hr>
+<label>Email</label><input type="email" name="email" required />
+<br><hr>
+<label>Gender</label><br>
+
+Male<input  type="radio" name="gender" value="Male" />
+<br>
+Female<input  type="radio" name="gender" value="Female" />
+<br> <hr>
+<label> Address</label><textarea name="address" rows="4" cols="50"></textarea>
+<br><hr>
+<label>City</label><input type="text" name="city" maxlength="30" />
+<br><hr>
+<label>State</label><input type="text" name="state" maxlength="30" />
+<br><hr>
+<label>Country</label><input type="text" name="country" value="Pakistan" readonly="readonly" />
+<br><hr>
+
+<label>Qualification</label>
+
+
+ <br>
+<label>1-Matric</label>
+
+<input type="text" name="Matric_Board" placeholder="Board Name" maxlength="30"  /><br><br>
+<input type="text" name="Matric_Percentage" maxlength="30" placeholder=Percentage /><br><br>
+<input type="text" name="Matric_PassingOfYear" maxlength="30" placeholder="Year Of Passing" />
+<br><hr>
+<label>2-Intermediate</label>
+<input type="text" name="Inter_Board" maxlength="30" placeholder="Board Name"/>
+<br><br>
+<input type="text" name="Inter_Percentage" maxlength="30" placeholder=Percentage  />
+<br><br>
+<input type="text" name="Inter_PassingOfYear" maxlength="30" placeholder="Year Of Passing"/>
+<br><hr>
+<label>Graduation</label>
+<input type="text" name="Grad_Board" maxlength="30" placeholder="Board Name" />
+<br><br>
+<input type="text" name="Grad_Percentage" maxlength="30" placeholder=Percentage />
+<br><br>
+<input type="text" name="Grad_PassingOfYear" maxlength="30" placeholder="Year Of Passing" />
+ <br><hr>
+<label>Select Course</label>
+<select name="course" id="Course">
+
+<option value="-1">Course</option>
+<option value="M.com">M.com</option>
+<option value="B.com">B.com</option>
+<option value="D.com">D.com</option>
+</select>
+</div>
+<br><br>
+
+<div class="bttn"><input type="submit" value="Register"/>
+<input  type="reset" value="Reset"/></div>
+
+
+
+</div>
+</form>
+
+<!-------------footer----------------->
+
+<div class="footer">
+
+	<div class="foot1">
+		<img src="images/worldmap.png" alt=""  >
+         	 <a href="#">Find School With Google Maps &raquo;</a>
+
+
+	</div>
+
+	<div class="foot2">
+
+		<p>Stay Update with us</p>
+		<ul class="faico clear">
+        	  <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+        	  <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+        	  <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+        	  <li><a class="faicon-flickr" href="#"><i class="fa fa-flickr"></i></a></li>
+        	  <li><a class="faicon-rss" href="#"><i class="fa fa-rss"></i></a></li>
+        	</ul>
+
+
+	</div>
+	<div class="foot3">
+
+			<a class="f31" href="#">Administr</a>
+			<a class="f32" href="#">Help Desk</a>
+			<a class="f33" href="#">Feedback</a>
+			<a class="f34" href="#">Complaints</a>
+
+
+	</div>
+	<div class="foot4">
+		<div class="f41">
+			<a href="index.html"><i class="fa fa-home fa-lg "></i></a>
+			<a href="index.html"><i class="fa fa-info-circle fa-lg "></i></a>
+			<a href="index.html"><i class="fa fa-address-book-o fa-lg "></i></a>
+			<a href="index.html"><i class="fa fa-sign-out fa-lg "></i></a>
+		</div>
+		<div class="f42">
+			<br>
+			<i class="fa fa-envelope fa-fw"></i>realx4rd@gmail.com<br><br>
+			<i class="fa fa-phone fa-fw"></i>0346-6882215
+
+		</div>
+	</div>
+
+
+</div>
+
+
+</body>
+</html>
