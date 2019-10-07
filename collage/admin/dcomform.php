@@ -14,16 +14,9 @@ if(!$_SESSION['user_name']){
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>D.Com Class Online Course Management System</title>
-    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
-
-
-
-</head>
+<?php
+@include_once './../include/head.php';
+?>
 
 <style>
     .sidebar ul{ list-style-type: none;  padding: 0;}

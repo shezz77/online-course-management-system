@@ -10,96 +10,47 @@ if(!$_SESSION['user_name']){
 <!DOCTYPE html>
 
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>B.com Student Registration Online Course Management System</title>
-<link href="../font-awesome/css/font-awesome.css" rel="stylesheet" />
 
-<link rel="stylesheet" href="../css/style.css" type="text/css">	
+<?php
+@include_once './../include/head.php';
+?>
 
 <style>
-.sidebar ul{ list-style-type: none;  padding: 0;}
-.sidebar ul li{ background:url(../images/bg-body.jpg);;border:1px solid blue;padding: 11px 0 11px 11px;  margin:11px 0;border-radius: 22px 0 0 22px; }
-.sidebar ul li:hover{ cursor: auto;border-right-color: white; margin-left: 7px;}
-.sidebar ul li a{ color:blue; }
-.sidebar ul li a:hover{ color: black; }
-#open a{ color:black; }
-#open{ margin-left: 9px; border-right-color: white; background:#8ff}
+    .sidebar ul{ list-style-type: none;  padding: 0;}
+    .sidebar ul li{ background:url(../images/bg-body.jpg);;border:1px solid blue;padding: 11px 0 11px 11px;  margin:11px 0;border-radius: 22px 0 0 22px; }
+    .sidebar ul li:hover{ cursor: auto;border-right-color: white; margin-left: 7px;}
+    .sidebar ul li a{ color:blue; }
+    .sidebar ul li a:hover{ color: black; }
+    #open a{ color:black; }
+    #open{ margin-left: 9px; border-right-color: white; background:#8ff}
 
 
 
-.frm{  background:green; border-radius:30px;width:444px;padding:50px 50px ;margin:auto;font-family:rokkittbold}
-.inpt{color:white;margin:22px 22px; padding:10px; border-radius:30px;font-family:rokkittbold}
-.inpt input{ ; padding-left:22px;float:right;font-family:rokkittbold}
-label{ float:left;}
-#h22{ text-align:center; margin-top:0px;}
-select{float:right;}
+    .frm{  background:green; border-radius:30px;width:444px;padding:50px 50px ;margin:auto;font-family:rokkittbold}
+    .inpt{color:white;margin:22px 22px; padding:10px; border-radius:30px;font-family:rokkittbold}
+    .inpt input{ ; padding-left:22px;float:right;font-family:rokkittbold}
+    label{ float:left;}
+    #h22{ text-align:center; margin-top:0px;}
+    select{float:right;}
 
 
 
-.bttn{ background:silver;padding:10px 22px ;border-radius:22px; width:122px;margin-left:144px; }
-.bttn input{ border:none; background:none;color:blue;font-weight:bold;font-family:rokkittbold;font-size:16px;}
-.bttn input:hover{ color:black;}
-@media only screen and (max-width:993px){
-.frm{ margin-left:0;background:blue;}
-}
+    .bttn{ background:silver;padding:10px 22px ;border-radius:22px; width:122px;margin-left:144px; }
+    .bttn input{ border:none; background:none;color:blue;font-weight:bold;font-family:rokkittbold;font-size:16px;}
+    .bttn input:hover{ color:black;}
+    @media only screen and (max-width:993px){
+        .frm{ margin-left:0;background:blue;}
+    }
 </style>
 
-
-</head>
 <body>
 <!---------------------------header and fix sidebar-------------------------->
 
-	<div class="header">
-		<div class="coverhead">
-			<a href="index.html" id="logo"><img src="../images/logo.png" alt="logo" height="58" width="381"></a>
-			<div class="coverul">
-				<div id="topbar"> 
-  				   <ul>
-  				 		<li><a href="#"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i> <?php echo $_SESSION['user_name'];?></a></li>
-						<li><a href="#"><i class="fa fa-gear fa-fw "></i>Setting</a></li>
-						<li><a href="#"><i class="fa fa-address-book-o fa-fw" aria-hidden="true"></i>Profile</a></li>
-						<li><a href="logout.php"><i class="fa fa-sign-out fa-fw fa-lg " aria-hidden="true"></i>Sign Out</a></li>
-     				   
-     				   </ul> 
-  			
-				</div>
+<?php
+include('../include/header.php');
+@include_once './../include/sidebar.php';
+?>
 
-
-				
-				<ul class="selful">
-					<li >	<a href="../pages/index.html"><i class="fa fa-home fa-fw"></i>Home</a></li>
-					<li><a href="../pages/facilities.html">Facilities</a></li>
-					
-					<li><a href="../pages/collegereview.html">College</a></li>
-					<li><a href="../pages/timetable.html">Time Table</a></li>
-					<li><a href="../pages/download.html">Downloads</a></li>
-				
-				
-				
-					
-				</ul>
-			</div>
-		</div>
-	</div>
-
-
-
-	
-	<div class="sidebar">	
-
-
-				<ul>
-				     <li id='open'><a href="../admin/adminpanel.php"><i class="fa fa-ellipsis-v fa-fw "></i>Student Data Base</a></li>
-					<li ><a href="../managment/managmentpanel.php"><i class="fa fa-ellipsis-v fa-fw "></i></i>Staff Data Base</a></li>
-					<li><a href="../fee/feepanel.php"><i class="fa fa-ellipsis-v fa-fw "></i>Fee Data Base</a></li>
-					<li><a href="../datesheet/dspanel.php"><i class="fa fa-ellipsis-v fa-fw "></i>Manage Date Sheet</a></li>
-					<li><a href="../accounts/accountpanel.php"><i class="fa fa-ellipsis-v fa-fw "></i> Accounts DataBase</a></li>
-					<li><a href="../forum/form.php"><i class="fa fa-ellipsis-v fa-fw "></i>Discussion Forum</a></li>
-				</ul>
-
-
-	</div>
 
 <!-----------------------------form page content----------------->
 <!---------------------------------------------------------->
@@ -111,10 +62,10 @@ $Password = "";
 $Database = "fk";
 $Table = "bcom";
 $Host = "localhost";
-$sqlDate = date('Y-m-d H:i:s'); 
+$sqlDate = date('Y-m-d H:i:s');
 
 		// Connect to the server
-		mysql_connect($Host, $User, $Password) or die (mysql_error()); 
+		mysql_connect($Host, $User, $Password) or die (mysql_error());
 		//Check connectivity
 		mysql_select_db($Database) or die(mysql_error());
 
@@ -125,7 +76,7 @@ $sqlDate = date('Y-m-d H:i:s');
 		$folder="Photo/";  // folder name where image will be store
 		move_uploaded_file($_FILES["myimage"]["tmp_name"], "$folder".$_FILES["myimage"]["name"]);
 		// Insert data into DB
-	
+
 		$insert = "INSERT INTO $Table (roll_no,Student_Name, Father_Name, CNIC, Birth_Date,
 										  Email, Gender, Address, City,
 										  State, Matric_Course, Matric_Board,
@@ -137,8 +88,8 @@ $sqlDate = date('Y-m-d H:i:s');
 							, '$_POST[state]', '$_POST[Matric_Course]', '$_POST[Matric_Board]'
 							, '$_POST[Matric_Percentage]', '$_POST[Matric_PassingOfYear]','$_POST[inter_course]'
 							, '$_POST[inter_board]','$_POST[inter_percentage]','$_POST[inter_year]'
-							, '$upload_image','$folder','$sqlDate')";		
-		
+							, '$upload_image','$folder','$sqlDate')";
+
 	if (!mysql_query($insert)){
 	die("Error:".mysql_error());
 }
@@ -146,10 +97,10 @@ else echo "<center> <p >  Record Added Successfully  <br>";
 	echo "Student name is:<strong>";
 	echo $_POST['sname'];
 	echo "</strong></p></center>";
-	
-		mysql_close(); 
+
+		mysql_close();
 	}
-		
+
 ?>
 <br>
 <div class="frm">
@@ -212,57 +163,6 @@ Female<input  type="radio" name="gender" value="Female" />
 
 </div>
 </form>
-
-<!-------------footer----------------->
-		
-<div class="footer">
-
-	<div class="foot1">
-		<img src="../images/worldmap.png" alt=""  >
-         	 <a href="#">Find School With Google Maps &raquo;</a>
-        
-
-	</div>
-
-	<div class="foot2">
-		
-		<p>Stay Update with us</p>
-		<ul class="faico clear">
-        	  <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-        	  <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-        	  <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-        	  <li><a class="faicon-flickr" href="#"><i class="fa fa-flickr"></i></a></li>
-        	  <li><a class="faicon-rss" href="#"><i class="fa fa-rss"></i></a></li>
-        	</ul>
-
-
-	</div>
-	<div class="foot3">
-		
-			<a class="f31" href="#">Administr</a>
-			<a class="f32" href="#">Help Desk</a>
-			<a class="f33" href="#">Feedback</a>
-			<a class="f34" href="#">Complaints</a>
-			
-	
-	</div>
-	<div class="foot4">
-		<div class="f41">
-			<a href="index.html"><i class="fa fa-home fa-lg "></i></a>
-			<a href="index.html"><i class="fa fa-info-circle fa-lg "></i></a>
-			<a href="index.html"><i class="fa fa-address-book-o fa-lg "></i></a>
-			<a href="logout.php"><i class="fa fa-sign-out fa-lg "></i></a>
-		</div>
-		<div class="f42">
-			<br>
-			<i class="fa fa-envelope fa-fw"></i>realx4rd@gmail.com<br><br>
-			<i class="fa fa-phone fa-fw"></i>0346-6882215
-			
-		</div>
-	</div>
-
-	
-</div>
 
 
 </body>
