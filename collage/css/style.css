@@ -23,8 +23,8 @@
 
 
 /*------------------------- Layout styles ------------------------*/
-body { 
-	cursor: url(../images/fk.png),auto;
+body {
+	/*cursor: url(../images/fk.png),auto;*/
 	margin:0;
 	font-family: 'quattrocento_sansregular';
 	background:url(../images/bg-body.jpg);
@@ -44,7 +44,7 @@ p a {
 /* topbar
 ------------------------------------------------------------------------------------------------------------*/
 #topbar{ padding:10px 0 0 0; text-align:right; font-size:.8em; padding-bottom:20px; padding-top:0;  }
-#topbar li{display:inline; margin-right:3px; padding-right:8px;border-right:1px solid ; } 
+#topbar li{display:inline; margin-right:3px; padding-right:8px;border-right:1px solid ; }
 #topbar li:last-child{ margin-right:0; padding-right:0; border:none;}
 #topbar a{ text-decoration:none; color:white;}
 
@@ -81,7 +81,7 @@ p a {
 	margin:0;
 	overflow:hidden;
 	padding:21px 0 0;
-	
+
 }
 .selful li:first-child {
 	margin:0;
@@ -148,7 +148,7 @@ a{ text-decoration:none}
 .resultsp div {color:black;font-size:22px;margin:44px;}
 .resultsp div i{ color:red;margin-right:8px;}
 .button{ background:green;;padding:12px;;float:left;border:none;}
-.button a{color:white;} 
+.button a{color:white;}
 .button:hover{ background:#234;}
 .button a:hover{ color:white;}
 #n{ display:none;color:blue;position:absolute;background:white;clear:both;}
@@ -168,7 +168,7 @@ a{ color:white;}
 
 
 
-.textbox{border:2px solid black;width:470px;float:left;font-size:16px;font-weight:bold;padding-left:20px;padding-top:19px;padding-right:20px;line-		height:25px;color:green;border-top:none;}
+.textbox{border:2px solid black;width:470px;float:left;font-size:16px;font-weight:bold;padding-left:20px;padding-top:19px;padding-right:20px;line-height:25px;color:green;border-top:none;}
 
 .headtext{border-radius:44px 44px 0 0;width:510px;font-size:28px;color:#435e35;font-weight:bold;padding-bottom:12px;margin-top:12px;padding-top:8px;text-shadow:0 1px 			1px #000;font-smooth:always;text-align:center;border:2px solid black;border-bottom:1px dotted green;}
 
@@ -188,13 +188,13 @@ a{ color:white;}
 	.f32{ float:left; border-radius:12px 0 12px 0;}
 	.f33{ clear:both;float:left;border-radius:12px 0  12px 0;}
 	.f34{  float:left;border-radius:0 12px 0 12px;}
-.foot4{font-family:rokkittbold;float:left;position:relative;background:;}
+.foot4{font-family:rokkittbold;float:left;position:relative;}
 .foot4 i{color:yellow;}
 	.f41{ ;margin-top:12px;padding:12px;border:1px solid yellow;border-radius:12px;}
 	.f41 a{margin:10px;}
 	.f41 i:hover{ color:red;}
 	.f42 {display:block;color:white;letter-spacing:2px}
-	
+
 
 /*Social Icons
 --------------------------------------------------------------------------------------------------------------- */

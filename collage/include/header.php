@@ -6,6 +6,8 @@
 <!--                <img src="../images/logo.png" alt="logo" height="58" width="381">-->
             </a>
 			<div class="coverul">
+
+                <?php if (isset($_SESSION['user_name'])) {?>
 				<div id="topbar">
   				   <ul>
        					<li><a href="#"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i> <?php echo $_SESSION['user_name'];?></a></li>
@@ -15,6 +17,8 @@
      				   </ul>
 
 				</div>
+
+                <?php }?>
 
 				<ul class="selful">
 					<li   >	<a href="../pages/index.php"><i class="fa fa-home fa-fw"></i>Home</a></li>
