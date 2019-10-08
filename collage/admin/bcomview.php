@@ -2,7 +2,7 @@
 session_start();
 
 if(!$_SESSION['user_name']){
-	header('location:admin_login.php?error=login first then come');
+    header('location:admin_login.php?error=login first then come');
 }
 
 ?>
@@ -10,7 +10,7 @@ if(!$_SESSION['user_name']){
 
 
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 
@@ -76,106 +76,106 @@ include('../include/header.php');
 
 
 <div class="marginl" >
-		<div class="maintext"><hr>
-			B.COM Class Database <hr>
-		</div>
+    <div class="maintext"><hr>
+        B.COM Class Database <hr>
+    </div>
 
 
-		<div class="sidemenu fleft">
-			<ul>
-				<li><a href="adminpanel.php"><i class="fa fa-user-circle fa-fw"></i>Admin Panel</a>    </li>
-				<li><a href="dcomview.php"><i class="fa fa-pencil fa-fw "></i> D.com Class</a>    </li>
-				<li  id ="selectedli"><a href="bcomview.php"><i class="fa fa-book fa-fw"></i> B.com Class</a>    </li>
-				<li><a href=""><i class="fa fa-graduation-cap fa-fw"></i> M.com Class</a>	</li>
-				<li><a href=""><i class="fa fa-bar-chart fa-fw"></i> Manage Results</a>	</li>
-				<li><a href=""><i class="fa fa-search fa-fw"></i> Search Record</a>	</li>
-			</ul>
-		</div>
+    <div class="sidemenu fleft">
+        <ul>
+            <li><a href="adminpanel.php"><i class="fa fa-user-circle fa-fw"></i>Admin Panel</a>    </li>
+            <li><a href="dcomview.php"><i class="fa fa-pencil fa-fw "></i> D.com Class</a>    </li>
+            <li  id ="selectedli"><a href="bcomview.php"><i class="fa fa-book fa-fw"></i> B.com Class</a>    </li>
+            <li><a href=""><i class="fa fa-graduation-cap fa-fw"></i> M.com Class</a>	</li>
+            <li><a href=""><i class="fa fa-bar-chart fa-fw"></i> Manage Results</a>	</li>
+            <li><a href=""><i class="fa fa-search fa-fw"></i> Search Record</a>	</li>
+        </ul>
+    </div>
 
-		<div class="admincontent fleft">
-			<div>
-
-
-					<div class="fleft insert sphover">
-								 <a href="bcomform.php"><i class="fa fa-plus-circle fa-fw"></i> Insert New Record</a>
-					</div>
-
-					<?php
+    <div class="admincontent fleft">
+        <div>
 
 
+            <div class="fleft insert sphover">
+                <a href="bcomform.php"><i class="fa fa-plus-circle fa-fw"></i> Insert New Record</a>
+            </div>
 
-					if(isset($_GET['updated'])){
-					echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw fa-lg'></i>
+            <?php
+
+
+
+            if(isset($_GET['updated'])){
+                echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw fa-lg'></i>
 							".$_GET['updated']."
 					</div>";
-					}
+            }
 
-					?>
+            ?>
 
-					<?php
+            <?php
 
 
 
-					if(isset($_GET['deleted'])){
-					echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw'></i>
+            if(isset($_GET['deleted'])){
+                echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw'></i>
 							".$_GET['deleted']."
 					</div>";
-					}
+            }
 
-					?>
-
-
-
-					<div class="search fright">
-						<form action="bcomsearch.php" method="GET">
-
-							<input type="text" name="search" placeholder="Roll_no or Name" />
-							<button type="submit" name="submit" value="Search" ><i class="fa fa-search"></i></button>
-						</form>
-					</div>
-
-			</div>
-<center>
-			<div class="studentlist">
-							<div class="titlelist">
-								<ul>
-									<li>Sr.no</li>
-									<li>Roll No</li>
-									<li>Student Name</li>
-									<li>Father Name</li>
-									<li><i class="fa fa-gear fa-fw"></i> Modification</li>
-								</ul>
-
-							</div>
+            ?>
 
 
+
+            <div class="search fright">
+                <form action="bcomsearch.php" method="GET">
+
+                    <input type="text" name="search" placeholder="Roll_no or Name" />
+                    <button type="submit" name="submit" value="Search" ><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+
+        </div>
+        <center>
+            <div class="studentlist">
+                <div class="titlelist">
+                    <ul>
+                        <li>Sr.no</li>
+                        <li>Roll No</li>
+                        <li>Student Name</li>
+                        <li>Father Name</li>
+                        <li><i class="fa fa-gear fa-fw"></i> Modification</li>
+                    </ul>
+
+                </div>
 
 
 
 
-<?php
-
-$dbname = "fk";
-$username = "root";
-$password = "";
-$servername = "localhost";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM bcom";
-$result = $conn->query($sql);
-$i=1;
-
-if ($result->num_rows > 0) {
-     // output data of each row
-     while($row = $result->fetch_assoc()) {	$del=$row["sid"]; $edit=$row["sid"];$det=$row["sid"];
 
 
-         echo " <div class='detaillist'>
+                <?php
+
+                $dbname = "fk";
+                $username = "root";
+                $password = "";
+                $servername = "localhost";
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                $sql = "SELECT * FROM bcom";
+                $result = $conn->query($sql);
+                $i=1;
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {	$del=$row["sid"]; $edit=$row["sid"];$det=$row["sid"];
+
+
+                        echo " <div class='detaillist'>
 
 								<ul >
 									<li>".$i."</li>
@@ -191,25 +191,24 @@ if ($result->num_rows > 0) {
 
 					</div>
 				";
-				$i++;
+                        $i++;
+
+                    }
+
+                } else {
+                    echo "<p>0 results</p>";
+                }
+
+                $conn->close();
+
+                ?>
 
 
-     									}
 
-							} else {
-   										  echo "<p>0 results</p>";
-									}
+            </div>
+        </center>
 
-$conn->close();
-
-?>
-
-
-
-			</div>
-</center>
-
-		</div>
+    </div>
 
 
 </div>

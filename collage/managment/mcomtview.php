@@ -3,7 +3,7 @@
 session_start();
 
 if(!$_SESSION['user_name']){
-	header('location:admin_login.php?error=login first then come');
+    header('location:admin_login.php?error=login first then come');
 }
 
 ?>
@@ -11,7 +11,7 @@ if(!$_SESSION['user_name']){
 
 
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 <?php
@@ -77,99 +77,99 @@ if(!$_SESSION['user_name']){
 
 
 <div class="marginl" >
-		<div class="maintext sans"><hr>
-			Mcom Class Teacher Database <hr>
-		</div>
+    <div class="maintext sans"><hr>
+        Mcom Class Teacher Database <hr>
+    </div>
 
 
     <?php
     @include_once './../include/management-sidebar.php';
     ?>
 
-		<div class="admincontent fleft">
-			<div>
+    <div class="admincontent fleft">
+        <div>
 
 
-					<div class="fleft insert sphover">
-								 <a href="mcomtform.php"><i class="fa fa-plus-circle fa-fw"></i> Insert New Record</a>
-					</div>
+            <div class="fleft insert sphover">
+                <a href="mcomtform.php"><i class="fa fa-plus-circle fa-fw"></i> Insert New Record</a>
+            </div>
 
-					<?php
+            <?php
 
 
 
-					if(isset($_GET['updated'])){
-					echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw fa-lg'></i>
+            if(isset($_GET['updated'])){
+                echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw fa-lg'></i>
 							".$_GET['updated']."
 					</div>";
-					}
+            }
 
-					?>
+            ?>
 
-					<?php
+            <?php
 
 
 
-					if(isset($_GET['deleted'])){
-					echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw'></i>
+            if(isset($_GET['deleted'])){
+                echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw'></i>
 							".$_GET['deleted']."
 					</div>";
-					}
+            }
 
-					?>
-
-
-
-					<div class="search fright">
-						<form action="mcomtsearch.php" method="GET">
-
-							<input type="text" name="search" placeholder="Reg. No or Name" />
-							<button type="submit" name="submit" value="Search" ><i class="fa fa-search"></i></button>
-						</form>
-					</div>
-
-			</div>
-<center>
-			<div class="studentlist">
-							<div class="titlelist">
-								<ul>
-									<li>Sr.no</li>
-									<li>Regist. No</li>
-									<li>Teacher Name</li>
-									<li>Father Name</li>
-									<li><i class="fa fa-gear fa-fw"></i> Modification</li>
-								</ul>
-
-							</div>
+            ?>
 
 
+
+            <div class="search fright">
+                <form action="mcomtsearch.php" method="GET">
+
+                    <input type="text" name="search" placeholder="Reg. No or Name" />
+                    <button type="submit" name="submit" value="Search" ><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+
+        </div>
+        <center>
+            <div class="studentlist">
+                <div class="titlelist">
+                    <ul>
+                        <li>Sr.no</li>
+                        <li>Regist. No</li>
+                        <li>Teacher Name</li>
+                        <li>Father Name</li>
+                        <li><i class="fa fa-gear fa-fw"></i> Modification</li>
+                    </ul>
+
+                </div>
 
 
 
 
-<?php
-
-$dbname = "fkteacher";
-$username = "root";
-$password = "";
-$servername = "localhost";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM mcomt";
-$result = $conn->query($sql);
-$i=1;
-
-if ($result->num_rows > 0) {
-     // output data of each row
-     while($row = $result->fetch_assoc()) {	$del=$row["tid"]; $edit=$row["tid"];$det=$row["tid"];
 
 
-         echo " <div class='detaillist'>
+                <?php
+
+                $dbname = "fkteacher";
+                $username = "root";
+                $password = "";
+                $servername = "localhost";
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                $sql = "SELECT * FROM mcomt";
+                $result = $conn->query($sql);
+                $i=1;
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {	$del=$row["tid"]; $edit=$row["tid"];$det=$row["tid"];
+
+
+                        echo " <div class='detaillist'>
 
 								<ul >
 									<li>".$i."</li>
@@ -185,26 +185,23 @@ if ($result->num_rows > 0) {
 
 					</div>
 				";
-				$i++;
+                        $i++;
 
 
-     									}
+                    }
 
-							} else {
-   										  echo "<p>0 results</p>";
-									}
+                } else {
+                    echo "<p>0 results</p>";
+                }
 
-$conn->close();
+                $conn->close();
 
-?>
+                ?>
 
+            </div>
+        </center>
 
-
-
-			</div>
-</center>
-
-		</div>
+    </div>
 
 
 </div>

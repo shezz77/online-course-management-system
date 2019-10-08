@@ -12,16 +12,15 @@ if(!$_SESSION['user_name']){
 
 <?php
 
-$conn = mysql_connect("localhost","root","");
-$db = mysql_select_db('fkteacher', $conn);
+@include_once './../db/connection_fkteacher.php';
 
 $edit_record = $_GET['edit'];
 
 $query = "SELECT * FROM dcomt WHERE tid='$edit_record'";
 
-$run = mysql_query($query);
+$run = mysqli_query($conn, $query);
 
-while ($row=mysql_fetch_array($run) )
+while ($row=mysqli_fetch_array($run) )
 {
     $tid 		 = $row['tid'];
     $reg_no 	 = $row['reg_no'];
@@ -236,10 +235,10 @@ if(isset($_POST['submit']))
 								image_name = '$upload_image'
 
 							WHERE tid=$edited_id ";
-    if(mysql_query($query1))
+    if(mysqli_query($conn, $query1))
     {
         echo "<script>window.open('dcomtview.php?updated=Record Updated','_self')</script>";}
-    else  echo mysql_error();
+    else  echo mysqli_error($conn);
 
 
 

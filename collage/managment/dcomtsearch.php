@@ -111,8 +111,7 @@ if(!$_SESSION['user_name']){
 
 if(isset($_GET['search'])){
 
-	$conn = mysql_connect("localhost","root","");
-	$db = mysql_select_db('fkteacher', $conn);
+    @include_once './../db/connection_fkteacher.php';
 
 		$search_rec = $_GET['search'];
 		$search_query = "select * from dcomt where teacher_name='$search_rec' OR reg_no='$search_rec' ";
@@ -120,15 +119,15 @@ if(isset($_GET['search'])){
 
 		$i=1;
 
-		$run2 = mysql_query($search_query);
-		$run3 = mysql_query($search_query);
+		$run2 = mysqli_query($conn, $search_query);
+		$run3 = mysqli_query($conn, $search_query);
 
-		$check=mysql_fetch_assoc($run3);
+		$check=mysqli_fetch_assoc($run3);
 			if($check==false)
 			{
 				echo "<br><br><div class='msg'><i class='fa fa-times fa-lg fa-fw'></i> No result found for :". $_GET['search']."</div>";
 			}
-		while ($row=mysql_fetch_assoc($run2))
+		while ($row=mysqli_fetch_assoc($run2))
 		{
 
 

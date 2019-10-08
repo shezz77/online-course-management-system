@@ -2,7 +2,7 @@
 session_start();
 
 if(!$_SESSION['user_name']){
-	header('location:admin_login.php?error=login first then come');
+    header('location:admin_login.php?error=login first then come');
 }
 
 ?>
@@ -10,7 +10,7 @@ if(!$_SESSION['user_name']){
 
 
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 <?php
@@ -60,52 +60,50 @@ if(!$_SESSION['user_name']){
 
 
 <div class="marginl" >
-		<div class="maintext sans"><hr>
-			D.COM Class Teacher Database <hr>
-		</div>
+    <div class="maintext sans"><hr>
+        D.COM Class Teacher Database <hr>
+    </div>
 
 
     <?php
     @include_once './../include/management-sidebar.php';
     ?>
 
-		<div class="admincontent fleft">
-			<div>
+    <div class="admincontent fleft">
+        <div>
 
 
-					<div class="fleft insert sphover">
-								 <a href="dcomtform.php"><i class="fa fa-plus-circle fa-fw"></i> Insert New Record</a>
-					</div>
-					<div class="fleft insert sphover">
-								 <a href="dcomtview.php"><i class="fa fa-database fa-fw"></i> All Teacher Database</a>
-					</div>
-					<div class="search fright ">
-						<form action="dcomtsearch.php" method="GET">
+            <div class="fleft insert sphover">
+                <a href="dcomtform.php"><i class="fa fa-plus-circle fa-fw"></i> Insert New Record</a>
+            </div>
+            <div class="fleft insert sphover">
+                <a href="dcomtview.php"><i class="fa fa-database fa-fw"></i> All Teacher Database</a>
+            </div>
+            <div class="search fright ">
+                <form action="dcomtsearch.php" method="GET">
 
-							<input type="text" name="search" placeholder="Reg_no or Name" />
-							<button type="submit" name="submit" value="Search" ><i class="fa fa-search"></i></button>
-						</form>
-					</div>
+                    <input type="text" name="search" placeholder="Reg_no or Name" />
+                    <button type="submit" name="submit" value="Search" ><i class="fa fa-search"></i></button>
+                </form>
+            </div>
 
-			</div>
+        </div>
 
-			<div class="studentlist">
+        <div class="studentlist">
 
-<?php
-if(isset($_GET['detail'])){
-$did = $_GET['detail'] ;
+            <?php
+            if(isset($_GET['detail'])){
+                $did = $_GET['detail'] ;
 
+                @include_once './../db/connection_fkteacher.php';
 
-$conn = mysql_connect("localhost","root","");
-$db = mysql_select_db('fkteacher', $conn);
+                $dquery = "SELECT * FROM dcomt where tid='$did'";
+                $drun = mysqli_query($conn, $dquery);
 
-$dquery = "SELECT * FROM dcomt where tid='$did'";
-$drun = mysql_query($dquery);
+                while($row1=mysqli_fetch_array($drun))
+                {
 
-while($row1=mysql_fetch_array($drun))
-{
-
-echo " <div class='insert sphover'>
+                    echo " <div class='insert sphover'>
 						Teacher Detail
 					</div>
 			<table>
@@ -135,29 +133,17 @@ echo " <div class='insert sphover'>
 
 
 			";
-	}
+                }
+
+            }
 
 
-}
+            ?>
+
+        </div>
 
 
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-			</div>
-
-
-		</div>
+    </div>
 
 
 </div>

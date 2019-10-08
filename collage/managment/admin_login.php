@@ -123,8 +123,7 @@ session_start();
 
 <?php
 
-$con = mysql_connect("localhost","root","");
-$db	= mysql_select_db('fk',$con);
+@include_once './../db/connection_fkteacher.php';
 
 if(isset($_POST['login']))
 {
@@ -132,9 +131,9 @@ if(isset($_POST['login']))
 	$password = $_POST['admin_pass'];
 
 $query = "select * from login where user_name='$username' AND user_password='$password'";
-$run = mysql_query($query);
+$run = mysqli_query($conn, $query);
 
-if(mysql_num_rows($run)>0)
+if(mysqli_num_rows($run)>0)
 {
 	echo "<script>window.open('managmentpanel.php?logged=logged in successfully','_self')</script>";
 }

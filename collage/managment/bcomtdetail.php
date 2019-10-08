@@ -14,7 +14,7 @@ if(!$_SESSION['user_name']){
 
 <html>
 <?php
-@include_once './../include/head.php';
+@include_once './../db/connection_fkteacher.php';
 ?>
 
 <style>
@@ -99,13 +99,12 @@ if(!$_SESSION['user_name']){
                 $did = $_GET['detail'] ;
 
 
-                $conn = mysql_connect("localhost","root","");
-                $db = mysql_select_db('fkteacher', $conn);
+                @include_once './../db/connection.php';
 
                 $dquery = "SELECT * FROM bcomt where tid='$did'";
-                $drun = mysql_query($dquery);
+                $drun = mysqli_query($conn, $dquery);
 
-                while($row1=mysql_fetch_array($drun))
+                while($row1=mysqli_fetch_array($drun))
                 {
 
                     echo " <div class='insert sphover'>

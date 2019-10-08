@@ -95,13 +95,12 @@ if(!$_SESSION['user_name']){
                 $did = $_GET['detail'] ;
 
 
-                $conn = mysql_connect("localhost","root","");
-                $db = mysql_select_db('fkteacher', $conn);
+                @include_once './../db/connection_fkteacher.php';
 
                 $dquery = "SELECT * FROM mcomt where tid='$did'";
-                $drun = mysql_query($dquery);
+                $drun = mysqli_query($conn, $dquery);
 
-                while($row1=mysql_fetch_array($drun))
+                while($row1=mysqli_fetch_array($drun))
                 {
 
                     echo " <div class='insert sphover'>
@@ -130,9 +129,6 @@ if(!$_SESSION['user_name']){
 			<tr><th>Address</th><td colspan=3>". $row1["Address"] ."</td></tr>
 			</table> 
 			
-
-
-
 			";
                 }
 
@@ -141,16 +137,6 @@ if(!$_SESSION['user_name']){
 
 
             ?>
-
-
-
-
-
-
-
-
-
-
 
 
         </div>

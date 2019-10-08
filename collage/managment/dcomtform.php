@@ -115,10 +115,7 @@ $Table = "dcomt";
 $Host = "localhost";
 $sqlDate = date('Y-m-d H:i:s');
 
-		// Connect to the server
-		mysql_connect($Host, $User, $Password) or die (mysql_error());
-		//Check connectivity
-		mysql_select_db($Database) or die(mysql_error());
+    @include_once './../db/connection_fkteacher.php';
 
 
 
@@ -137,8 +134,8 @@ $sqlDate = date('Y-m-d H:i:s');
 							, '$_POST[state]', '$_POST[salary]', '$_POST[qualification]'
 							, '$_POST[subjects]','$upload_image','$folder','$sqlDate')";
 
-	if (!mysql_query($insert)){
-	die("Error:".mysql_error());
+	if (!mysqli_query($conn, $insert)){
+	die("Error:".mysqli_error($conn));
 }
 else echo "<div class='insert'><center> <p >  Record Added Successfully  <br>";
 	echo "Teacher name is:<strong>";
