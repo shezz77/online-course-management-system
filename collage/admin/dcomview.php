@@ -2,7 +2,7 @@
 session_start();
 
 if(!$_SESSION['user_name']){
-	header('location:admin_login.php?error=login first then come');
+    header('location:admin_login.php?error=login first then come');
 }
 
 ?>
@@ -10,7 +10,7 @@ if(!$_SESSION['user_name']){
 
 
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 
@@ -76,9 +76,9 @@ include('../include/header.php');
 
 
 <div class="marginl" >
-		<div class="maintext"><hr>
-			D.COM Class Database <hr>
-		</div>
+    <div class="maintext"><hr>
+        D.COM Class Database <hr>
+    </div>
 
     <?php
     @include_once './../include/sub-sidebar.php';
@@ -87,90 +87,90 @@ include('../include/header.php');
 
 
 
-		<div class="admincontent fleft">
-			<div>
+    <div class="admincontent fleft">
+        <div>
 
 
-					<div class="fleft insert sphover">
-								 <a href="dcomform.php"><i class="fa fa-plus-circle fa-fw"></i> Insert New Record</a>
-					</div>
+            <div class="fleft insert sphover">
+                <a href="dcomform.php"><i class="fa fa-plus-circle fa-fw"></i> Insert New Record</a>
+            </div>
 
-					<?php
+            <?php
 
 
 
-					if(isset($_GET['updated'])){
-					echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw fa-lg'></i>
+            if(isset($_GET['updated'])){
+                echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw fa-lg'></i>
 							".$_GET['updated']."
 					</div>";
-					}
+            }
 
-					?>
+            ?>
 
-					<?php
+            <?php
 
 
 
-					if(isset($_GET['deleted'])){
-					echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw'></i>
+            if(isset($_GET['deleted'])){
+                echo "<div class='fleft insert sphover'><i class='fa fa-check fa-fw'></i>
 							".$_GET['deleted']."
 					</div>";
-					}
+            }
 
-					?>
-
-
-
-					<div class="search fright">
-						<form action="dcomsearch.php" method="GET">
-
-							<input type="text" name="search" placeholder="Roll_no or Name" required />
-							<button title="Click to Search the Record" type="submit" name="submit" value="Search" ><i class="fa fa-search"></i></button>
-						</form>
-					</div>
-
-			</div>
-<center>
-			<div class="studentlist">
-							<div class="titlelist">
-								<ul>
-									<li>Sr.no</li>
-									<li>Roll No</li>
-									<li>Student Name</li>
-									<li>Father Name</li>
-									<li><i class="fa fa-gear fa-fw"></i> Modification</li>
-								</ul>
-
-							</div>
+            ?>
 
 
+
+            <div class="search fright">
+                <form action="dcomsearch.php" method="GET">
+
+                    <input type="text" name="search" placeholder="Roll_no or Name" required />
+                    <button title="Click to Search the Record" type="submit" name="submit" value="Search" ><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+
+        </div>
+        <center>
+            <div class="studentlist">
+                <div class="titlelist">
+                    <ul>
+                        <li>Sr.no</li>
+                        <li>Roll No</li>
+                        <li>Student Name</li>
+                        <li>Father Name</li>
+                        <li><i class="fa fa-gear fa-fw"></i> Modification</li>
+                    </ul>
+
+                </div>
 
 
 
 
-<?php
-
-$dbname = "fk";
-$username = "root";
-$password = "";
-$servername = "localhost";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM dcom";
-$result = $conn->query($sql);
-$i=1;
-
-if ($result->num_rows > 0) {
-     // output data of each row
-     while($row = $result->fetch_assoc()) {	$del=$row["sid"]; $edit=$row["sid"];$det=$row["sid"];
 
 
-         echo " <div class='detaillist'>
+                <?php
+
+                $dbname = "fk";
+                $username = "root";
+                $password = "";
+                $servername = "localhost";
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                $sql = "SELECT * FROM dcom";
+                $result = $conn->query($sql);
+                $i=1;
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {	$del=$row["sid"]; $edit=$row["sid"];$det=$row["sid"];
+
+
+                        echo " <div class='detaillist'>
 
 								<ul >
 									<li>".$i."</li>
@@ -193,7 +193,7 @@ if ($result->num_rows > 0) {
 
 
 
-							echo "<script >
+                        echo "<script >
 									function fk".$i."(){
 							dom = document.getElementById('pic".$i."').style;
 							if(dom.visibility=='visible')
@@ -202,25 +202,25 @@ if ($result->num_rows > 0) {
 								dom.visibility='visible';
 								}
 								</script>";
-				$i++;
+                        $i++;
 
 
-     									}
+                    }
 
-							} else {
-   										  echo "<p>0 results</p>";
-									}
+                } else {
+                    echo "<p>0 results</p>";
+                }
 
-$conn->close();
+                $conn->close();
 
-?>
+                ?>
 
 
 
-			</div>
-</center>
+            </div>
+        </center>
 
-		</div>
+    </div>
 
 
 

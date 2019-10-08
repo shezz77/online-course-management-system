@@ -107,14 +107,12 @@ include('../include/header.php');
 if(isset($_GET['detail'])){
 $did = $_GET['detail'] ;
 
-
-$conn = mysql_connect("localhost","root","");
-$db = mysql_select_db('fk', $conn);
+    @include_once './../db/connection.php';
 
 $dquery = "SELECT * FROM dcom where sid='$did'";
-$drun = mysql_query($dquery);
+$drun = mysqli_query($conn, $dquery);
 
-while($row1=mysql_fetch_array($drun))
+while($row1=mysqli_fetch_array($drun))
 {
 
 echo " <div class='insert sphover'>

@@ -109,6 +109,8 @@ include('../include/header.php');
 
             <?php
             // Variables
+            @include_once './../db/connection.php';
+
             if(isset($_POST['submit'])){
                 $User = "root";
                 $Password = "";
@@ -117,10 +119,10 @@ include('../include/header.php');
                 $Host = "localhost";
                 $sqlDate = date('Y-m-d H:i:s');
 
-                // Connect to the server
-                mysql_connect($Host, $User, $Password) or die (mysql_error());
-                //Check connectivity
-                mysql_select_db($Database) or die(mysql_error());
+//                // Connect to the server
+//                mysqli_connect($Host, $User, $Password) or die (mysql_error());
+//                //Check connectivity
+//                mysqli_select_db($Database) or die(mysqli_error());
 
 
 
@@ -141,15 +143,15 @@ include('../include/header.php');
 							, '$_POST[Matric_Percentage]', '$_POST[Matric_PassingOfYear]'
 							, '$upload_image','$folder','$sqlDate')";
 
-                if (!mysql_query($insert)){
-                    die("Error:".mysql_error());
+                if (!mysqli_query($conn, $insert)){
+                    die("Error:".mysqli_error());
                 }
                 else echo "<div class='insert'><center> <p >  Record Added Successfully  <br>";
                 echo "Student name is:<strong>";
                 echo $_POST['sname'];
                 echo "</strong></p></center></div>";
 
-                mysql_close();
+                mysqli_close($conn);
             }
 
             ?>

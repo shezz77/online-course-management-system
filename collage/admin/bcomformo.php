@@ -57,17 +57,7 @@ include('../include/header.php');
 <?php
 // Variables
 if(isset($_POST['submit'])){
-$User = "root";
-$Password = "";
-$Database = "fk";
-$Table = "bcom";
-$Host = "localhost";
-$sqlDate = date('Y-m-d H:i:s');
-
-		// Connect to the server
-		mysql_connect($Host, $User, $Password) or die (mysql_error());
-		//Check connectivity
-		mysql_select_db($Database) or die(mysql_error());
+    @include_once './../db/connection.php';
 
 
 
@@ -90,8 +80,8 @@ $sqlDate = date('Y-m-d H:i:s');
 							, '$_POST[inter_board]','$_POST[inter_percentage]','$_POST[inter_year]'
 							, '$upload_image','$folder','$sqlDate')";
 
-	if (!mysql_query($insert)){
-	die("Error:".mysql_error());
+	if (!mysqli_query($conn, $insert)){
+	die("Error:".mysqli_error());
 }
 else echo "<center> <p >  Record Added Successfully  <br>";
 	echo "Student name is:<strong>";

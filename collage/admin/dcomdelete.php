@@ -1,29 +1,14 @@
 <?php
 // Variables
 
-$User = "root";
-$Password = "";
-$Database = "fk";
-$Host = "localhost";
-$sqlDate = date('Y-m-d H:i:s'); 
+@include_once './../db/connection.php';
 
-		// Connect to the server
-		mysql_connect($Host, $User, $Password) or die (mysql_error()); 
-		//Check connectivity
-		mysql_select_db($Database) or die(mysql_error());
-		// Delete data into DB
-		
-		$del_rec = $_GET['del'];
-		
-		$query = "DELETE FROM dcom WHERE sid='$del_rec'";
-		
-		if(mysql_query($query)){
-			echo "<script>window.open('dcomview.php?deleted=Record Deleted ','_self')</script>";
-		}
-		
-		
-		
-		
-		
-?>
-		
+$del_rec = $_GET['del'];
+
+$query = "DELETE FROM dcom WHERE sid='$del_rec'";
+
+if(mysqli_query($conn, $query)){
+    echo "<script>window.open('dcomview.php?deleted=Record Deleted ','_self')</script>";
+}
+
+mysqli_close($conn);

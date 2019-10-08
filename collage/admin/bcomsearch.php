@@ -121,8 +121,7 @@ include('../include/header.php');
 
                 if(isset($_GET['search'])){
 
-                    $conn = mysql_connect("localhost","root","");
-                    $db = mysql_select_db('fk', $conn);
+                    @include_once './../db/connection.php';
 
                     $search_rec = $_GET['search'];
                     $search_query = "select * from bcom where student_name='$search_rec' OR roll_no='$search_rec' ";
@@ -130,15 +129,15 @@ include('../include/header.php');
 
                     $i=1;
 
-                    $run2 = mysql_query($search_query);
-                    $run3 = mysql_query($search_query);
+                    $run2 = mysqli_query($conn, $search_query);
+                    $run3 = mysqli_query($conn, $search_query);
 
-                    $check=mysql_fetch_assoc($run3);
+                    $check=mysqli_fetch_assoc($run3);
                     if($check==false)
                     {
                         echo "<br><br><div class='msg'> <i class='fa fa-times fa-lg fa-fw'></i>No result found for :". $_GET['search']."</div>";
                     }
-                    while ($row=mysql_fetch_assoc($run2))
+                    while ($row=mysqli_fetch_assoc($run2))
                     {$del=$row["sid"]; $edit=$row["sid"];$det=$row["sid"];
 
 
@@ -156,8 +155,7 @@ include('../include/header.php');
 									</li>
 								</ul>
 
-					</div>
-				";
+					</div>";
                         $i++;
                     }
                 }

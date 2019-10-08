@@ -79,16 +79,9 @@ include('../include/header.php');
 		</div>
 
 
-		<div class="sidemenu fleft">
-			<ul>
-				<li><a href="adminpanel.php"><i class="fa fa-user-circle fa-fw"></i>Admin Panel</a>    </li>
-				<li  ><a href="dcomview.php"><i class="fa fa-pencil fa-fw "></i> D.com Class</a>    </li>
-				<li id ="selectedli"><a href="bcomview.php"><i class="fa fa-book fa-fw"></i> B.com Class</a>    </li>
-				<li><a href=""><i class="fa fa-graduation-cap fa-fw"></i> M.com Class</a>	</li>
-				<li><a href=""><i class="fa fa-bar-chart fa-fw"></i> Manage Results</a>	</li>
-				<li><a href=""><i class="fa fa-search fa-fw"></i> Search Record</a>	</li>
-			</ul>
-		</div>
+    <?php
+    @include_once './../include/sub-sidebar.php';
+    ?>
 
 		<div class="admincontent fleft">
 			<div>
@@ -115,19 +108,8 @@ include('../include/header.php');
 <?php
 // Variables
 if(isset($_POST['submit'])){
-$User = "root";
-$Password = "";
-$Database = "fk";
-$Table = "bcom";
-$Host = "localhost";
-$sqlDate = date('Y-m-d H:i:s');
 
-		// Connect to the server
-		mysql_connect($Host, $User, $Password) or die (mysql_error());
-		//Check connectivity
-		mysql_select_db($Database) or die(mysql_error());
-
-
+    @include_once './../db/connection.php';
 
 		$upload_image=$_FILES["myimage"]["name"];  //image name
 
@@ -148,8 +130,8 @@ $sqlDate = date('Y-m-d H:i:s');
 							, '$_POST[inter_board]','$_POST[inter_percentage]','$_POST[inter_year]'
 							, '$upload_image','$folder','$sqlDate')";
 
-	if (!mysql_query($insert)){
-	die("Error:".mysql_error());
+	if (!mysqli_query($conn, $insert)){
+	die("Error:".mysqli_error());
 }
 else echo "<div class='insert'><center> <p >  Record Added Successfully  <br>";
 	echo "Student name is:<strong>";
